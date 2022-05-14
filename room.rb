@@ -1,16 +1,22 @@
 class Room
+  attr_reader :enemys_in_room
   def initialize
-    @enemy_in_room = []
-    @chest_in_room = []
+    @enemys_in_room = []
+    @chests_in_room = []
+    @character_in_room = nil
+  end
+  def add_character(character)
+    @character_in_room = character
   end
 
   def add_enemy(enemy)
-    @enemy_in_room << enemy
+    @enemys_in_room << enemy
   end
 
   def add_chest(chest)
-    @chest_in_room << chest
+    @chests_in_room << chest
   end
+
 
   #содержит в себе сундук, врагов
   #пускает в себя персонажа
