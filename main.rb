@@ -3,19 +3,33 @@ require "./weapons.rb"
 require "./armor.rb"
 require "./enemy.rb"
 
-# enemy create
-ork = Enemy.new("Tarkar", 34, 25)
+# enemy create (name, damage, hit_point)
+ork = Enemy.new("Tarkar", 14, 25)
 elf = Enemy.new("Ellair", 25, 10)
 dwarf = Enemy.new("Grim", 20, 20)
 
-# weapons create
+# weapons create(name, damage)
 arrow = Weapon.new("Arrow", 7)
 sword = Weapon.new("Sword", 12)
 stick = Weapon.new("Stick", 19)
 
-# armors create
+# armors create(name, defense)
 lats = Armor.new("Lats", 20)
 chain_mail = Armor.new("Cain mail", 17)
+
+# room create
+room1 = Room.new 
+room2 = Room.new 
+room3 = Room.new 
+
+
+# dangeon create
+dangeon = Dangeon.new
+
+#add room 
+dangeon.add_room(room1)
+dangeon.add_room(room2)
+dangeon.add_room(room3)
 
 puts "Enter name:"
 name = gets.chomp.to_s
@@ -73,14 +87,11 @@ puts "Your class - #{my_hero.hero_class}"
 puts "Your weapon - #{my_hero.weapon.type}"
 puts "Your damage -  #{my_hero.damage}"
 puts "Your armor -  #{my_hero.armor.type}"
-puts "Your protection -  #{my_hero.protection}"
+puts "Your defense -  #{my_hero.defense}"
 puts "Your hit point -  #{my_hero.hit_point}"
 sleep 2
-
 # fight
 puts "You have been attacked!!!"
-sleep 2
-puts "Start fight"
 while my_hero.hit_point > 0
   puts "#{ork.name} is attacking you"
   ork.attack my_hero
@@ -88,3 +99,5 @@ while my_hero.hit_point > 0
   puts "Your hit point -  #{my_hero.hit_point}"
 end
 my_hero.dead
+
+#заход в комнату , бой со всеми врагами по очереди, сбор дропа, предложение о переходе в другую комнату и сначала

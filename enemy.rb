@@ -9,7 +9,11 @@ class Enemy
   end
 
   def attack(target)
-    target.hit_point -= (@damage - target.protection)
-    puts "Your hit point: #{target.hit_point}"
+    damage_multiplier = rand(1..3)
+    if target.defense < (@damage * damage_multiplier)
+      target.hit_point -= ((@damage * damage_multiplier) - target.defense)
+      puts "Damage: #{@damage * damage_multiplier}!"
+      puts "Your hit point: #{target.hit_point}"
+    else puts "Armor is not pierced!"     end
   end
 end
